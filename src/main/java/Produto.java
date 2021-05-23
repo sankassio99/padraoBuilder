@@ -2,7 +2,7 @@ import java.time.LocalDate;
 
 public class Produto {
 
-    private long id;
+    private int id;
     private String titulo;
     private String descricao;
     private double preco;
@@ -11,7 +11,11 @@ public class Produto {
     private LocalDate dataUltimaAtualizacao ;
     private Vendedor vendedor ;
 
-    Produto(long id, String titulo, String descricao, double preco, String categoria, LocalDate dataCadastro, LocalDate dataUltimaAtualizacao, Vendedor vendedor) {
+    Produto(int id, String titulo, String descricao, double preco, String categoria,
+            LocalDate dataCadastro, LocalDate dataUltimaAtualizacao, Vendedor vendedor) {
+        if ( id == 0) {
+            throw new IllegalArgumentException("O ID do produto é um campo obrigatório");
+        }
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -22,11 +26,11 @@ public class Produto {
         this.vendedor = vendedor;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -84,5 +88,19 @@ public class Produto {
 
     public void setVendedor(Vendedor vendedor) {
         this.vendedor = vendedor;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", preco=" + preco +
+                ", categoria='" + categoria + '\'' +
+                ", dataCadastro=" + dataCadastro +
+                ", dataUltimaAtualizacao=" + dataUltimaAtualizacao +
+                ", vendedor=" + vendedor +
+                '}';
     }
 }

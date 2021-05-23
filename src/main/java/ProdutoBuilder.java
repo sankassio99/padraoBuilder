@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 
 public class ProdutoBuilder {
-    private long id;
+    private int id;
     private String titulo;
     private String descricao;
     private double preco;
@@ -10,7 +10,7 @@ public class ProdutoBuilder {
     private LocalDate dataUltimaAtualizacao;
     private Vendedor vendedor;
 
-    public ProdutoBuilder setId(long id) {
+    public ProdutoBuilder setId(int id) {
         this.id = id;
         return this;
     }

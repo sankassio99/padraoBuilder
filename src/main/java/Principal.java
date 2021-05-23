@@ -8,7 +8,7 @@ public class Principal {
                 .setPreco(2342.00)
                 .createProduto();
 
-        System.out.println(produto.getTitulo());
+        System.out.println(produto);
     }
 
 }
